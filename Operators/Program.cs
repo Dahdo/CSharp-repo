@@ -18,6 +18,7 @@ namespace Lab07 {
                 Console.WriteLine($"  {++TestCounter:00}. Error! {spacing}{obj1}{spacing} == {spacing}{obj2}{spacing} is not {equals.ToString()}!");
             }
             Console.ResetColor();
+
         }
 
         static void TestMsg(string message, bool ok = true) {
