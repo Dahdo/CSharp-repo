@@ -89,8 +89,8 @@ namespace lab7 {
 
         public static Fraction operator +(Fraction fraction1, Fraction fraction2) {
             long denom = fraction1.denominator * fraction2.denominator;
-            long num1 = denom / fraction1.denominator * fraction1.numerator;
-            long num2 = denom / fraction2.denominator * fraction2.numerator;
+            long num1 = fraction2.denominator * fraction1.numerator;
+            long num2 = fraction1.denominator * fraction2.numerator;
 
             return new Fraction(num1 + num2, denom);
         }
@@ -145,6 +145,9 @@ namespace lab7 {
         //public override bool Equals(object? obj) {
         //    return this == ((Fraction)obj!);
         //}
+        public override bool Equals([NotNullWhen(true)] object? obj) {
+            return base.Equals(obj);
+        }
 
         public override int GetHashCode() {
             return base.GetHashCode();
