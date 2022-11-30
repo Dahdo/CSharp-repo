@@ -1,0 +1,115 @@
+﻿Notes:
+- For each sequence class, use yield operator to implement IEnumerable interface.
+- In whole tasks use int as a numeric type.
+- All classes and interfaces define inside EN_Lab_09 namespace
+
+Stage 1 [1.5]
+In file BasicSequences.cs create interface ISequence that inherits from IEnumerable.
+The interface should have one method:
+ * string Description(), that returns description of sequence
+
+In file BasicSequences.cs create class Repeat that implements interface ISequence.
+ * Implement constructor that takes two arguments, where the first is value to repeat, and the second is number of repetition.
+ * Implement method Description, that return name of class with parameters which where given in contructor,
+   e.g. "Repeat(20,5)";
+ * Implement method GetEnumerator (from IEnumerable), that returns value from constructor repeated given number times,
+   e.g. Repeat(3,5) -> 3, 3, 3, 3, 3
+
+In file BasicSequences.cs create class ArithmeticProgression that implements interface ISequence.
+ * Implement constructor that takes two arguments, where the first is initial value of arithmetic progression,
+   and the second is step of arithmetic progression. Second argument should have default value of 1.
+ * Implement method Description, that return name of class with parameters which were given in constructor,
+   e.g. "ArithmeticProgression(0,1)";
+ * Implement method GetEnumerator (from IEnumerable), that returns next values of arithmetic progression,
+   e.g. ArithemticProgression(3,5) -> 3, 8, 13, 18 ...
+
+In file BasicSequences.cs create class GeometricProgression that implements interface ISequence.
+ * Implement constructor that takes two arguments, where the first is initial value of geometric progression,
+   and the second is step of geometric progression.
+ * Implement method Description, that return name of class with parameters which were given in constructor,
+   e.g. "GeometricProgression(3,2)".
+ * Implement method GetEnumerator (from IEnumerable), that returns next values of geometric progression,
+   e.g. GeometricProgression(3,5) -> 3, 15, 75, 375 ...
+
+In file BasicSequences.cs create class PowerOf that inherits from GeometricProgression.
+ * Implement constructor that takes one argument Value.
+ * Override method Description, that return name of class with parameters which were given in constructor,
+   e.g. "PowersOf(Value)".
+ * Sequence should return next powers of Value,
+   e.g. PowerOf(2) -> 1, 2, 4, 8, 16 ...
+
+Stage 2 [2.0]
+In file SequenceDecorators.cs create interface ISequenceDecorator.
+The interface should have methods:
+ * string Description(), that returns description of sequence.
+ * IEnumerable Decorate(IEnumerable), that decorates IEnumerable.
+
+In file SequenceDecorators.cs create class SequenceSum that implements interface ISequenceDecorator.
+ * Implement method Description, that returns name of class with parameters which where given in contructor,
+   e.g. "SequenceSum()".
+ * Implement method Decorate, that returns partial sum of sequence.
+   e.g. SequenceSum().Decorate(Repeat(3,5)) -> 3, 6, 9, 12, 15
+
+In file SequenceDecorators.cs create class LessThanFilter that implements interface ISequenceDecorator.
+ * Implement constructor that takes two arguments, (int Limit, bool Memory = false)
+ * Implement method Description, that returns name of class with parameters which where given in contructor,
+   e.g. "LessThanFilter(0,false)".
+ * Implement method Decorate, that for:
+   + Memory = false, returns only elements that are less then Limit.
+     e.g. LessThanFilter(0,false).Decorate(new int[] {1, -2, 3, -4, -5}) -> -2, -4, -5
+   + Memory = true:
+     if element is less then Limit: returns element
+	 otherwise: return last element that was less than Limit, if sequence starts with value above limit,
+	 skip until first value that is less than Limit.
+     e.g. LessThanFilter(0,true).Decorate(new int[] {1, -2, 3, -4, -5}) -> -2, -2, -4, -5
+     
+In file SequenceDecorators.cs create class MedianFilter that implements interface ISequenceDecorator.
+ * Implement constructor that takes one argument (int FilterSize)
+ * Implement method Description, that returns name of class with parameters which where given in contructor,
+   e.g. "MedianFilter(5)".
+ * Implement method Decorate, that computes median from FilterSize next elements.
+   For even FilterSize, return the smaller of the middle two values.
+   If the series ends before it gets FilterSize values from it, return the median for the correspondingly fewer items.
+   e.g. MedianFilter(3).Decorate(new int {3, -2, 4, 0, 9, 7, -4, 0}) -> 3, 7, -4
+ * Hint: You can use standard Array.Sort method.
+
+Stage 3 [1.5]
+In file AdvancedSequences.cs create interface ISequenceCombine.
+The interface should methods:
+ * string Description(), that returns description of sequence.
+ * IEnumerable Combine(IEnumerable, IEnumerable), that combines two enumerables.
+
+In file AdvancedSequences.cs create class CantorPair that implements interface ISequenceCombine.
+ * Implement method Description, that returns name of class with parameters which where given in contructor,
+   e.g. "CantorPair".
+ * Implement method Combine, that creates Cantor pairs from two infinite series.
+ 
+ Cantor pairs are created by going through next diagonals in matrix created by combining two series.
+ For an example, by combining two series of natural numbers we will get a matrix:
+  |   0  |   1  |   2  |   3  |   4  | ...
+ 0|(0, 0) (0, 1) (0, 2) (0, 3) (0, 4)  ...
+ 1|(1, 0) (1, 1) (1, 2) (1, 3) (1, 4)  ...
+ 2|(2, 0) (2, 1) (2, 2) (2, 3) (2, 4)  ...
+ 3|(3, 0) (3, 1) (3, 2) (3, 3) (3, 4)  ...
+ 4|(4, 0) (4, 1) (4, 2) (4, 3) (4, 4)  ...
+
+ On a matrix created this way, we go through next diagonals starting with a diagonal going through point (0, 0).
+ So the next items in the series will be taken from the matrix in this way.
+  | 0 | 1 | 2 | 3 | 4 | ...
+ 0|#01 #03 #06 #10 #15
+ 1|#02 #05 #09 #14 ...
+ 2|#04 #08 #13 ... ... 
+ 3|#07 #12 ... ... ...
+ 4|#11 ... ... ... ...
+
+Use collection List<> for storing previous visited elements.
+yield in Combine() should return tuples of two objects.
+
+Stage 4 [1.0]
+Improve CantorPair so it will support finite series.
+If one of series ends, go through rest of elements using the same diagonal pattern.
+For an example, if we take arrays [0, 1, 2] and [0, 1, 2, 3, 4], next items in the series will be:
+  | 0 | 1 | 2 | 3 | 4 |
+ 0|#01 #03 #06 #09 #12
+ 1|#02 #05 #08 #11 #14
+ 2|#04 #07 #10 #13 #15
