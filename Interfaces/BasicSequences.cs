@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace EN_Lab_09 {
+    #region step1
     public interface ISequence : IEnumerable {
         public string Description();
     }
@@ -72,6 +73,9 @@ namespace EN_Lab_09 {
                 yield return Math.Pow(initial, i);
         }
     }
+    #endregion step1
 
+    #region step2
 
+    #endregion step2
 }
