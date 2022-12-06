@@ -1,0 +1,15 @@
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\bin\Debug\net6.0\GenericExtentionMethods.exe
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\bin\Debug\net6.0\GenericExtentionMethods.deps.json
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\bin\Debug\net6.0\GenericExtentionMethods.runtimeconfig.json
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\bin\Debug\net6.0\GenericExtentionMethods.dll
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\bin\Debug\net6.0\GenericExtentionMethods.pdb
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.csproj.AssemblyReference.cache
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.AssemblyInfoInputs.cache
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.AssemblyInfo.cs
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.dll
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\refint\GenericExtentionMethods.dll
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.pdb
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\GenericExtentionMethods.genruntimeconfig.cache
+C:\Users\Daniel\myC#Projects\GenericExtentionMethods\obj\Debug\net6.0\ref\GenericExtentionMethods.dll

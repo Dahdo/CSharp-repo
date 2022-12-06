@@ -1,0 +1,49 @@
+﻿Note: task compilation should not give errors or warnings, e.g. CS0108
+To make sure this is the case, you can enable the option:
+Project properties -> Build -> Treat warnings as errors -> set to All
+
+-------------------------------------------------- -----------------------
+
+The goal of the task is to implement a generalized (generic) class MyDictionary<TKey, TValue>,
+i.e. a self-organizing dictionary storing fields: key of type TKey (direct type not
+accepting null values) and a value of type TValue. The data is stored in a one-dimensional array o
+initial size 4. The fields of the array are gradually filled with elements. If you run out of space
+then a twice as large array is created and the elements are rewritten in the same order.
+This dictionary is self-organizing, i.e. for each search operation (linear) for an element (i.e
+methods Add, Contains, TryGetValue) with the given key value, this key is shifted one place
+towards the beginning of the table.
+NOTE: You can only use your own classes/structs or helper methods in an assignment, you can't use
+standard C# collections, e.g. LinkedList, List, Dictionary, Queue, etc.
+
+
+-------------------------------------------------- -----------------------
+
+Stage 1 (3.0)
+You must implement the class MyDictionary<TKey, TValue>
+  - the class is to implement the IMyDictionary<TKey, TValue> interface provided in the MyDictionary.cs file
+  - impose restrictions on the TKey type - only non-nullable direct types.
+  - Count property - returns the number of items in the dictionary. Complexity of O(1) method call.
+  - Add method - adds an item to the end of the collection. If the item with the given key exists, the value is
+overwritten and the element is moved one position.
+  - Contains method - returns information whether an element with a given key value exists in the dictionary.
+  - TryGetValue method - returns information whether an element with a given key value exists in the dictionary and
+value assigned to this key. If the given key does not exist, return the default value for
+type TValue.
+  - Remove method - removes an element with the given key if it is in the dictionary. Returns true if the operation succeeds
+successful, i.e. the item was found and deleted, false otherwise.
+  - overload the ToString method - the method returns a dictionary written to a string with the format "[{key0}:{value0}][{key1}:{value1}]..."
+
+-------------------------------------------------- -----------------------
+
+Stage 2 (1.0)
+Implement the IEnumerable<(TKey, TValue)> interface. The GetEnumerator method should return
+elements as a tuple (TKey, TValue) in the same order as they are stored in the array.
+
+-------------------------------------------------- -----------------------
+
+Stage 3 (1.0)
+Create a MyDictionaryExtensions class. The class should also be in MyDictionary
+The above class should implement methods extending the MyDictionary<TKey, TValue> class:
+  - extension method TKey[] GetKeys() - returns an array (new) of all keys in the dictionary.
+  - extension method TValue MaxValue() - returns the highest value for elements in the dictionary
+(TValue should implement the IComparable<TValue> interface).
