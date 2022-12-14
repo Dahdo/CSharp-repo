@@ -1,0 +1,81 @@
+﻿Stage 1 - 1.5 points
+
+Note: Only lambda expressions can be used in the Program.cs file at this stage.
+In the functions.cs file:
+
+Implement the "FillWith" method extending the List<T> class, taking 2 parameters:
+- number of elements (n),
+- a function f that takes no parameters and returns an element of type T.
+The method should extend the list by n items, each obtained by calling f.
+
+In the Program.cs file:
+
+Complete the FillWith call so that the first 10 terms of the fibonacci sequence are added to the fib list.
+
+Complete the Sort call so that the numbers are sorted by their modules in ascending order, if the modules are equal, the greater is the positive number.
+
+
+
+Stage 2 - 1 point
+
+Note: Lambda expressions are not allowed.
+In the functions.cs file:
+
+Add the following methods to the Generators class:
+
+The RandomInteger method takes 2 int parameters:
+- grain,
+- mod.
+The method returns a function that returns the next random number modulo mod returned by the Random instance created from the given seed.
+
+The ReturnElement method takes 1 parameter:
+- a collection of type IEnumerable<T>.
+Returns a function that takes one parameter, the number of an element from the collection, and returns that element,
+  if the number is <0 then we return the first element,
+  if the number is greater than the size of the collection, we return the last element of the collection,
+  we assume that the collection has at least one element
+ 
+
+ 
+Stage 3 - 1 point
+
+Note: The step must be performed using only lambda expressions.
+In the functions.cs file:
+
+Add the following methods to the FunctionsManipulator class:
+
+The Combine method, takes 2 functions that take and return a double, and returns their combination - first_function(second_function(x))
+
+The Derivative method takes:
+- function f accepting and returning a double,
+- default parameter h=0.001.
+The function returns a function taking the parameter x and taking the derivative of f in x,
+we calculate the derivative with x1 = x - h and x2 = x + h.
+
+In the Program.cs file:
+
+Complete the functions written in the comments where they are declared or assigned.
+
+
+Stage 4 - 1.5 points
+
+In the functions.cs file:
+
+Implement the following methods to extend the IEnumerable<T> interface:
+
+The Accumulate method takes 2 parameters:
+- the starting value of the sum, type T,
+- accepting counting function accepting in order: current element, current sum and returning new sum.
+
+The method returns the value T that is the result of summing the elements of the collection using the above function.
+
+The Transform method accepting a function called on each element of the collection,
+the method should return a new collection created by applying the given function to each of its elements.
+
+In the Program.cs file:
+
+Complete the Accumulate call with a sum function starting at 0 summing up all positive even elements,
+in addition, the function should store the sum of the modules of all elements of the collection in the absSum variable.
+
+Complete the Transform call with a function that will return the fractional part for numbers with a fractional part greater than 1/2,
+half the number in other cases.
