@@ -1,0 +1,213 @@
+// example - exceptions------------------------------------------------------------------------------------------------------------------------------
+
+
+using System;
+
+class Exceptions
+    {
+
+    public static void Test()
+        {
+        int a=1, b=0, c;
+
+        Console.WriteLine("Test method entered");
+
+        try
+            {
+            Console.WriteLine("Test method - outer try entered");
+            try
+                {
+                Console.WriteLine("Test method - inner try entered");
+                c=a/b;
+                Console.WriteLine("Test method - inner try exited");
+                }
+            catch ( System.NullReferenceException ) 
+                {
+                Console.WriteLine("Test method - inner catch - NullReferenceException");
+                }
+            finally
+                {
+                Console.WriteLine("Test method - inner finally");
+                }
+            Console.WriteLine("Test method - outer try exited");
+            }
+        finally
+            {
+            Console.WriteLine("Test method - outer finally");
+            }
+
+        Console.WriteLine("Test method exited");
+
+        }
+
+    public static void Main()
+        {
+
+        Console.WriteLine("Main method entered");
+
+        try
+            {
+            Console.WriteLine("Main method - outer try entered");
+            try
+                {
+                Console.WriteLine("Main method - inner try entered");
+                Test();
+                Console.WriteLine("Main method - inner try exited");
+                }
+            catch ( System.ArithmeticException ) 
+                {
+                Console.WriteLine("Main method - inner catch - ArithmeticException");
+                throw;
+                }
+            finally
+                {
+                Console.WriteLine("Main method - inner finally");
+                }
+            Console.WriteLine("Main method - outer try exited");
+            }
+        catch ( System.DivideByZeroException ) 
+            {
+            Console.WriteLine("Main method - outer catch - DivideByZeroException");
+            }
+        catch ( System.ArithmeticException ) 
+            {
+            Console.WriteLine("Main method - outer catch - ArithmeticException");
+            }
+        finally
+            {
+            Console.WriteLine("Main method - outer finally");
+            }
+
+        Console.WriteLine("Main method exited");
+
+        }
+
+    }
+    
+    // example - exceptions with when clauses (C# 6.0)------------------------------------------------------------------------------------------------
+    
+    
+using System;
+
+class MyException : Exception
+    {
+    public int errorCode;
+    public MyException(string mess, Exception inner) : base(mess,inner) {}
+    public MyException(string mess) : base(mess) {}
+    public MyException() {}
+    public MyException(int ec) { errorCode = ec; }
+    }
+
+class Test
+    {
+
+    public static void Main()
+        {
+        int v=0;
+        Console.WriteLine("Main method entered");
+
+        try
+            {
+            Console.WriteLine("try blok entered");
+            Console.Write("Input number:  ");
+            v = int.Parse(Console.ReadLine()!);
+            if ( v!=0 )
+                throw new MyException(v);
+            Console.WriteLine("try blok exited");
+            }
+        catch ( MyException e ) when ( e.errorCode==1 )
+            {
+            Console.WriteLine("catch block for MyException exception type and error code 1");
+            }
+        catch ( MyException e ) when ( e.errorCode==2 )
+            {
+            Console.WriteLine("catch block for MyException exception type and error code 2");
+            }
+        catch ( MyException e ) when ( e.errorCode==3 )
+            {
+            Console.WriteLine("catch block for MyException exception type and error code 3");
+            }
+        catch ( MyException e ) when ( e.errorCode==3 )
+            {
+            Console.WriteLine("second catch block for MyException exception type and error code 3");  // will never been executed
+            }
+        catch ( MyException )
+            {
+            Console.WriteLine("catch block for MyException exception type");  // will be executed for error codes different from 1,2,3
+            }
+        catch when ( v==1 )
+            {
+            Console.WriteLine("general catch block for error code 1");  // will be executed for exceptions types different from MyException and error code equal to 1
+            }
+        catch
+            {
+            Console.WriteLine("general catch block");  // will be executed for exceptions types different from MyException and error codes different from 1
+            }
+        finally
+            {
+            Console.WriteLine("finally block");
+            }
+
+        Console.WriteLine("Main method exited");
+
+        }
+
+    }
+    
+    // example - using statement------------------------------------------------------------------------------------------------------------------------
+    
+    
+using System;
+
+class ResourceUser : IDisposable
+    {
+    private static int count;
+    public readonly int nr;
+    private bool resources;
+
+    public ResourceUser()
+        {
+        nr = ++count;
+        resources = true;
+        Console.WriteLine($"ResourceUser object no {nr} has been created and resources have been assigned to it\n");
+        }
+
+    ~ResourceUser()
+        {
+        if ( resources ) Dispose();
+        Console.WriteLine($"ResourceUser object no {nr} has been deleted\n");
+        }
+
+    public void Dispose()
+        {
+        resources = false;
+        Console.WriteLine($"Resources of ResourceUser object no {nr} have been released\n");
+        }
+
+    }
+
+class Test
+    {
+
+    private static void Resource()
+        {
+        Console.WriteLine("Resource method entered\n");
+        ResourceUser r1 = new ResourceUser();
+        using ( ResourceUser r2 = new ResourceUser() )
+            {
+            Console.WriteLine($"ResouceUser objects no {r1.nr} and {r2.nr} use their resources\n");
+            // objects r1 and r2 use their resources
+            Console.WriteLine("Resources are not used from this point\n");
+            }
+        Console.WriteLine("Resource method exited\n");
+        }
+
+    public static void Main()
+        {
+        Console.WriteLine("\nFirst part of Main method\n");
+        Resource();
+        Console.WriteLine("Second part of Main method - ResourceUser objects no 1 and 2 are inaccessible\n");
+        Console.WriteLine("Main method exited !!!\n");
+        }
+
+    }
