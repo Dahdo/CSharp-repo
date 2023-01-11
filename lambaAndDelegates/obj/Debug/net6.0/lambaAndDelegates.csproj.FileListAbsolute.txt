@@ -1,0 +1,15 @@
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\bin\Debug\net6.0\lambaAndDelegates.exe
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\bin\Debug\net6.0\lambaAndDelegates.deps.json
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\bin\Debug\net6.0\lambaAndDelegates.runtimeconfig.json
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\bin\Debug\net6.0\lambaAndDelegates.dll
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\bin\Debug\net6.0\lambaAndDelegates.pdb
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.csproj.AssemblyReference.cache
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.AssemblyInfoInputs.cache
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.AssemblyInfo.cs
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.dll
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\refint\lambaAndDelegates.dll
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.pdb
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\lambaAndDelegates.genruntimeconfig.cache
+C:\Users\Daniel\myC#Projects\lambaAndDelegates\obj\Debug\net6.0\ref\lambaAndDelegates.dll
