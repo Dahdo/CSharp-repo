@@ -1,0 +1,15 @@
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.csproj.AssemblyReference.cache
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.AssemblyInfoInputs.cache
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.AssemblyInfo.cs
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\bin\Debug\net6.0\SerializationFilesExceptions.exe
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\bin\Debug\net6.0\SerializationFilesExceptions.deps.json
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\bin\Debug\net6.0\SerializationFilesExceptions.runtimeconfig.json
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\bin\Debug\net6.0\SerializationFilesExceptions.dll
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\bin\Debug\net6.0\SerializationFilesExceptions.pdb
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.dll
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\refint\SerializationFilesExceptions.dll
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.pdb
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\SerializationFilesExceptions.genruntimeconfig.cache
+C:\Users\Daniel\myC#Projects\SerializationFilesExceptions\obj\Debug\net6.0\ref\SerializationFilesExceptions.dll

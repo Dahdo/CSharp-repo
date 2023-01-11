@@ -1,12 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿The task is to prepare a class representing a library holding information about books and their authors.
+     The library keeps the data both in the operating memory and saves them on the computer's hard drive.
+The book and author classes and their auxiliary members have already been prepared.
+Remember to change the 'Copy to Output Directory' property of Books.xml to 'Copy always'.
 
-namespace SerializationFilesExceptions
-{
-    class instructions
-    {
-    }
-}
+Stage_1 (1.5 Points)
+     The 'Library' class should contain two lists holding information about books and authors respectively.
+         Additionally, a property representing the current path to the library save folder.
+
+     Implement the constructor that creates an empty folder on the disk, based on the string parameter of the constructor.
+
+     Implement the static method Create(string libraryPath, string sourceFile) which will create the library at the location indicated (constructor call) by libraryPath based on the csv file located at sourcePath.
+         We consider adding all books and authors to the appropriate lists from the class as creating a library. Return the created library.
+         The order of the fields in the csv file is as follows: BookID, Title, CoverType, AuthorID, First Name, Last Name, Year of Birth, Date of Publication, Place of Publication, Publisher.
+
+     Implement the Info() method that prints information about books to the console. According to the results provided.
+
+Stage_2 (1.5 Points)
+     Create a 'PathAlreadyExistsException' class representing an exception thrown when a file or folder on a given path already exists.
+
+     In the 'Library' class, implement the Add method for the book and the author, respectively, which will serialize the content to an xml file.
+         Use the ID value as the file name. Throw an exception if a file with the given name already exists.
+         Remember to give the class properties the appropriate attributes. Try to reuse the code.
+         We want all ID fields to be serialized as GUID fields.
+         Change the Create method implementer to use the newly implemented Add method instead of adding items directly to the list.
+         Make sure the Add method adds items to the list. To make the Add method generic, the Add method can take an object and use the GetType method.
+
+Stage_3 (1.0 Points)
+     Implement a Get method that takes the title of the book we want to get.
+         To do this, download all files from the main library folder, deserialize and return if the title matches.
+         If there is no book with the given title, return null. Note that books and authors are in the same folder.
+         If the deserialization fails, you can catch and handle the exception.
+
+     Implement a Delete method that takes an ID and deletes the file with the appropriate name.
+         Throws removed if the file does not exist and true if the file was successfully removed.
+
+Stage_4 (1.0 Points)
+     Implement the Save(string filenamePath) method, which will save all books in the library in binary format under the indicated path.
+         Remember to add appropriate attributes to classes.
